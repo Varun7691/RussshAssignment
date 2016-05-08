@@ -191,6 +191,16 @@ public class HomeActivity extends AppCompatActivity implements
         }
     }
 
+    private void handleGoogleSignIn(GoogleSignInResult result) {
+        String name = result.getSignInAccount().getDisplayName();
+        String[] nameSplit = name.split(" ");
+        String fName = nameSplit[0].toString();
+        String lName = nameSplit[1].toString();
+        String email = result.getSignInAccount().getEmail();
+        dbHelper.insertUser(fName, lName, "", email, "");
+
+    }
+
     private void generateKeyHash() {
         try {
             PackageInfo info = getPackageManager().getPackageInfo(
