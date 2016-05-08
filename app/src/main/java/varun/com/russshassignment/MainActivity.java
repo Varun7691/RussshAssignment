@@ -7,12 +7,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import varun.com.russshassignment.database.DBHelper;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText mFirstName, mLastName, mMobileNumber, mEmailAddress, mPassword;
     Button mSave;
 
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+    private DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mMobileNumber = (EditText) findViewById(R.id.mobile_number);
         mEmailAddress = (EditText) findViewById(R.id.email_address);
         mPassword = (EditText) findViewById(R.id.password);
-
         mSave = (Button) findViewById(R.id.save);
+
+        dbHelper = new DBHelper(MainActivity.this);
 
         mSave.setOnClickListener(this);
     }
@@ -60,14 +65,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return;
             }
 
-            if (!emailAddressStr.matches(emailPattern)) {
-                Toast.makeText(MainActivity.this, "Please enter a valid Email Address", Toast.LENGTH_SHORT).show();
-                return;
-            }
+//            if (!emailAddressStr.matches(emailPattern)) {
+//                Toast.makeText(MainActivity.this, "Please enter a valid Email Address", Toast.LENGTH_SHORT).show();
+//                return;
+//            }
 
             if (passwordStr.isEmpty()) {
                 Toast.makeText(MainActivity.this, "Please enter Password", Toast.LENGTH_SHORT).show();
                 return;
+            }
+
+            boolean isInsert = dbHelper.insertUser(firstNameStr, lastNameStr, mobileNumberStr, emailAddressStr, passwordStr);
+            if (isInsert) {
+                Toast.makeText(MainActivity.this, "User Registered", Toast.LENGTH_SHORT).show();
+                onBackPressed();
             }
         }
     }

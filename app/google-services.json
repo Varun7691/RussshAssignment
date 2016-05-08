@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "652367810902",
+    "project_id": "avid-catalyst-130519"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652367810902:android:13f40c2b6cad5a04",
+        "android_client_info": {
+          "package_name": "varun.com.russshassignment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "652367810902-cui3f4m5s8mmp7d9m39q394dqbe4lobb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "varun.com.russshassignment",
+            "certificate_hash": "8592FA4014D1FBD7EEC2527B70136357D49E5BDC"
+          }
+        },
+        {
+          "client_id": "652367810902-jf6102989dllenrv797kqv2eqmr8dkbk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIJ86Pwh98BmTZBDePIqY-355Sc2wbG8k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
