@@ -31,7 +31,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String createQuery = "Create Table " + TABLE_NAME + " (" + ID + " integer primary key," + FIRST_NAME + " text," + LAST_NAME + " text," + MOBILE_NUMBER + " text," + EMAIL_ADDRESS + " text," + PASSWORD + " text);";
+        String createQuery = "Create Table " + TABLE_NAME + " (" + ID + " integer primary key," + FIRST_NAME + " text," + LAST_NAME + " text," + MOBILE_NUMBER + " text," + EMAIL_ADDRESS + " text," + PASSWORD + " text, CONSTRAINT uc_PersonID UNIQUE (" + MOBILE_NUMBER + "," + EMAIL_ADDRESS + "));";
 
         db.execSQL(createQuery);
 
